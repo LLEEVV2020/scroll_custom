@@ -1,12 +1,10 @@
 # scroll_custom
 scroll js custom
 
-<h2>КОМАНДЫ ДЛЯ РАБОТЫ</h3>
-
-<h3>GULP</h3>
+<h3>КОМАНДЫ ДЛЯ РАБОТЫ</h3>
+<h3><i>GULP</i></h3>
 <p>npm i</p>
-
-<h3>GIT</h3>
+<h3><i>GIT</i></h3>
 <p>git clone ...</p>
 <p>cd scroll_custom</p>
 <p>git status</p>
