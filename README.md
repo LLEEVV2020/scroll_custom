@@ -1,6 +1,6 @@
 # scroll_custom
 scroll js custom
-
+<hr>
 <h3>КОМАНДЫ ДЛЯ РАБОТЫ</h3>
 <h4>GULP</h4>
 <p>npm i</p>
