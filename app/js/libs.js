@@ -23,9 +23,6 @@ function getPosition(e) {
     y: posy
   }
 }
-/*----------------------------------
-/*    jkkk(jjjj);
-/*----------------------------------*/
 
 /**********************************************************/
 /** Добавляем в бегунок` ширину*/
@@ -44,8 +41,44 @@ function creatuRerunner(scroll){
     });
 }
 
-// ставим левый отступ
-var margin_left;
+/**********************************************************/
+/* Сдвигаем ползунок если сдвигаем курсор*/
+function makeScroll(scroll, x){
+    var runner = scroll.find(".slider"); 
+    
+    var savepos = parseInt(runner.attr( "data-savepos"));
+    var savex = parseInt(runner.attr( "data-x"));
+    
+    var scrollWidth = parseInt(scroll.css("width"));
+    var runnerWidth = parseInt(runner.css("width"));
+    // ставим левый отступ
+    var margin_left;
+    
+    // сдвигаем влево
+    if(savex > x){
+        // ставим ограничение чтоб не уходило в левую сторону за гранницу
+        if(savepos > 0){
+            savepos = savepos - step; 
+        }
+    }  
+    // сдвигаем вправо
+    else{
+        // ставим ограничение чтоб не уходило в правую сторону за гранницу
+        if(savepos + runnerWidth < scrollWidth){
+            savepos = savepos + step; 
+        } 
+    }
+    margin_left = savepos;
+    savex = x;
+
+    runner.css({
+        "margin-left": margin_left + "px"
+    });
+    runner.attr({"data-x": savex});
+    runner.attr({"data-savepos": savepos});
+    
+}
+
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/
 /* Вторая версия*/
@@ -57,11 +90,12 @@ function makeScroll2(scroll, x){
     
     var scrollWidth = parseInt(scroll.css("width"));
     var runnerWidth = parseInt(runner.css("width"));
-
+    // ставим левый отступ
+    var margin_left;
     
     var stepLocal = Math.abs(savex - x);
     
-   // console.log(Math.abs(savex - x));
+    console.log(Math.abs(savex - x));
     
     // сдвигаем влево
     if(savex > x){
@@ -85,12 +119,9 @@ function makeScroll2(scroll, x){
             else{
                 savepos = savepos + stepLocal; 
             }
-        }
+        } 
     }
-  
-    margin_left = 0;
-          
-    
+    margin_left = savepos;
     savex = x;
 
     runner.css({
@@ -113,20 +144,18 @@ function newMakeScroll(runner, x){
     // ставим левый отступ
     var margin_left;
     
-    var stepLocal = Math.abs(savex - x);
-    
     // сдвигаем влево
     if(savex > x){
         // ставим ограничение чтоб не уходило в левую сторону за гранницу
         if(savepos > 0){
-            savepos = savepos - stepLocal; 
+            savepos = savepos - step; 
         }
     }  
     // сдвигаем вправо
     else{
         // ставим ограничение чтоб не уходило в правую сторону за гранницу
         if(savepos + runnerWidth < scrollWidth){
-            savepos = savepos + stepLocal; 
+            savepos = savepos + step; 
         } 
     }
     margin_left = savepos;

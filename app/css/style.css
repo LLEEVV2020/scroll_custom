@@ -1,3 +1,6 @@
+html {
+  color: #050; }
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -308,18 +311,9 @@ template {
   display: none; }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   height: 100vh; }
 
@@ -328,18 +322,9 @@ body {
   width: 399px;
   overflow: hidden;
   color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column; }
 
 @supports not (font-size: calc(25%)) {
@@ -363,7 +348,7 @@ body {
 .slider {
   background: #307fbd;
   cursor: pointer;
-  width: 0%;
+  width: 0.0%;
   min-width: 23px;
   height: 20px; }
 

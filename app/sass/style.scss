@@ -1,4 +1,7 @@
-
+html{
+    color: #050;
+}
+@import "normalize";
 body{
     display: flex;
     flex-direction: column;
@@ -43,7 +46,7 @@ body{
 .slider{
     background: #307fbd;
     cursor: pointer;
-    width: 0%;
+    width: 0.0%;
     min-width: 23px;
     height: 20px;
 }
