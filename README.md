@@ -1,14 +1,14 @@
 # scroll_custom
 scroll js custom
 
-КОМАНДЫ ДЛЯ РАБОТЫ
+<h2>КОМАНДЫ ДЛЯ РАБОТЫ</h3>
 
-1) GULP
-npm i
+<h3>GULP</h3>
+<p>npm i</p>
 
-2) GIT
+<h3>GIT</h3>
 <p>git clone ...</p>
-cd scroll_custom
-git status
-git commit -m "text commit" 
-git push
+<p>cd scroll_custom</p>
+<p>git status</p>
+<p>git commit -m "text commit" </p>
+<p>git push</p>
