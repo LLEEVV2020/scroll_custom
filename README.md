@@ -2,6 +2,7 @@
 <p>scroll js custom</p>
 <br><br>
 <hr>
+<div style="">
 <h3>КОМАНДЫ ДЛЯ РАБОТЫ</h3>
 <h4>GULP</h4>
 <p>npm i</p>
@@ -11,3 +12,4 @@ cd scroll_custom<br>
 git status<br>
 git commit -m "text commit"<br>
 git push</p>
+</div>
