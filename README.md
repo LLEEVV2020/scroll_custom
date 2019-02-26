@@ -7,7 +7,7 @@ scroll js custom
 npm i
 
 2) GIT
-git clone ...
+<p>git clone ...</p>
 cd scroll_custom
 git status
 git commit -m "text commit" 
