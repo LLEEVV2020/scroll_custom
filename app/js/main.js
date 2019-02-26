@@ -123,7 +123,7 @@ slider.on('click', function(){
     );
     
     
-    console.log("goo0d");
+    console.log("gohhho0d");
 });
  
 slider.on('mousedown', function(eventObject){
