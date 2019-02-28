@@ -4,6 +4,7 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
+var babel       = require("gulp-babel");
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
@@ -12,16 +13,15 @@ gulp.task('sass', function() {
         .pipe(gulp.dest("app/css"))
         .pipe(browserSync.stream());
 });
-function javascript() {
-    return gulp.src(jsSRC)
-    .pipe(concat('devwp.js'))
-    .pipe(uglify())
-    .pipe(lineec())
-    .pipe(gulp.dest(jsdist));
-  }
+// Compile babel into js 
+gulp.task('js', function() {
+    return gulp.src(["app/js/libs.js", "app/js/main.js"])
+        .pipe(babel())
+        .pipe(gulp.dest("app/babel"));
+});
 
 // Static Server + watching scss/html files
-gulp.task('serve', gulp.parallel('sass', function() {
+gulp.task('serve', gulp.parallel('sass', 'js', function() {
 
     browserSync.init({
         browser: 'chrome',
@@ -29,11 +29,11 @@ gulp.task('serve', gulp.parallel('sass', function() {
     });
 
     gulp.watch("app/sass/*.scss", gulp.series('sass'));
-    gulp.watch('app/js/*.js')
-    .on('change', browserSync.reload)
-    .on('unlink', function(path, stats) {
-        console.log(path);
-    });
+    gulp.watch('app/js/*.js', gulp.series('js'))
+        .on('change', browserSync.reload)
+        .on('unlink', function(path, stats) {
+            console.log(path);
+        });
     gulp.watch("app/*.html").on('change', browserSync.reload);
 }));
 
