@@ -19,7 +19,7 @@ slider.on(' mouseout', function(e){
         creatuRerunner($(this));
 
         /* Сдвигаем ползунок если сдвигаем курсор*/
-        newMakeScroll($(this), x); 
+        makeScroll($(this), x); 
 
     }
     //console.log("77777777777");

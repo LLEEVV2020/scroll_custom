@@ -97,7 +97,7 @@ function makeScroll2(scroll, x){
 
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/
-function newMakeScroll(runner, x){
+function makeScroll(runner, x){
     
     var savepos = parseInt(runner.attr( "data-savepos"));
     var savex = parseInt(runner.attr( "data-x"));
