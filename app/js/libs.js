@@ -25,6 +25,17 @@ function getPosition(e) {
 }
 
 /**********************************************************/
+/* Проверяем внутреннее содержимое 
+выходит ли за гранницу?*/
+function ifWider(scroll){
+    
+    var wrapper = scroll.parents(".wrapper");
+    var table = wrapper.find(".table");
+    
+    return wrapper.width() < table.width();   
+}
+
+/**********************************************************/
 /** Добавляем в бегунок` ширину*/
 function creatuRerunner(scroll){
     var runner = scroll.find(".slider");  
@@ -109,13 +120,3 @@ function makeScrollAdd(runner, x){
     
 }
 
-/**********************************************************/
-/* Проверяем внутреннее содержимое 
-выходит ли за гранницу?*/
-function ifWider(scroll){
-    
-    var wrapper = scroll.parents(".wrapper");
-    var table = wrapper.find(".table");
-    
-    return wrapper.width() < table.width();   
-}

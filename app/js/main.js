@@ -1,6 +1,7 @@
 let scroll = $(".scroll");
 let slider = $(".slider");
 
+// ставим ползунок при загрузке странницы
 $.each(scroll, function(key, val){ creatuRerunner($(val)) });
 
 // курсор выходит за гранницу палзунка 
