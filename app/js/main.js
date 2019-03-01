@@ -1,8 +1,8 @@
 'use strict';
 
-var scroll = $(".scroll");
-var slider = $(".slider");
-var step = 1;
+let scroll = $(".scroll");
+let slider = $(".slider");
+let step = 1;
 
 $.each(scroll, function(key, val){ creatuRerunner($(val)) });
 
