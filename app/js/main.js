@@ -4,7 +4,7 @@ let slider = $(".slider");
 $.each(scroll, function(key, val){ creatuRerunner($(val)) });
 
 // курсор выходит за гранницу палзунка 
-slider.on(' mouseout', function(e){
+slider.on('mouseout', function(e){
     // если таблица не вмещается в контейнер, то 
     // создаём скролл
     if(ifWider($(this)) ){
