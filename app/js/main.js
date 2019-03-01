@@ -78,7 +78,7 @@ slider.on(' mouseout', function(e){
         newMakeScroll($(this), x); 
 
     }
-    console.log("77777777777");
+    //console.log("77777777777");
 });
 
 slider.on('click', function(){    
