@@ -54,12 +54,5 @@ slider.on('mouseup ', function(eventObject){
     
 });
 
+// Math.abs(-2); // --> 2
 
-
-
-
-
-        //console.log("абсолютное: " + Math.abs(-2));
-        //console.log("wrapper_w : " + wrapper_w);
-        //console.log("sum : " + sum);
-        //return  console.log("good");
