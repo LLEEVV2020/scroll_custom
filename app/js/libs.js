@@ -99,22 +99,13 @@ function makeScroll2(scroll, x){
 /* Сдвигаем ползунок если сдвигаем курсор*/
 function makeScroll(runner, x){
     
-    var savepos = parseInt(runner.attr( "data-savepos"));
-    var savex = parseInt(runner.attr( "data-x"));
-    
-    var scrollWidth = parseInt(scroll.css("width"));
-    var runnerWidth = parseInt(runner.css("width"));
-    // ставим левый отступ
-    var margin_left;
-    
-    margin_left = savepos;
-    savex = x;
+    var margin_left = parseInt(runner.attr( "data-savepos"));
 
     runner.css({
         "margin-left": margin_left + "px"
     });
-    runner.attr({"data-x": savex});
-    runner.attr({"data-savepos": savepos});
+    runner.attr({"data-x": x});
+    runner.attr({"data-savepos": margin_left});
     
 }
 
