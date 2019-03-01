@@ -54,8 +54,6 @@ slider.on('mousemove', function(e){
         newMakeScroll($(this), x); 
 
     }
-    
-    
 });
 
 slider.on('mouseup', function(){
@@ -122,7 +120,6 @@ slider.on('click', function(){
         
     );
     
-    
     console.log("gohhho0d");
 });
  
@@ -152,7 +149,6 @@ slider.on('mousedown', function(eventObject){
 slider.on('mouseup ', function(eventObject){
     
     $(this).find(".bga").remove();
-    
     
 });
 
