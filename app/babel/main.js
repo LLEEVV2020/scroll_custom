@@ -2,7 +2,7 @@
 
 var scroll = $(".scroll");
 var slider = $(".slider");
-var step = 1;
+var step = 0;
 $.each(scroll, function (key, val) {
   creatuRerunner($(val));
 });
