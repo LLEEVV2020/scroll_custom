@@ -107,20 +107,6 @@ function newMakeScroll(runner, x){
     // ставим левый отступ
     var margin_left;
     
-    // сдвигаем влево
-    if(savex > x){
-        // ставим ограничение чтоб не уходило в левую сторону за гранницу
-        if(savepos > 0){
-            savepos = savepos - step; 
-        }
-    }  
-    // сдвигаем вправо
-    else{
-        // ставим ограничение чтоб не уходило в правую сторону за гранницу
-        if(savepos + runnerWidth < scrollWidth){
-            savepos = savepos + step; 
-        } 
-    }
     margin_left = savepos;
     savex = x;
 

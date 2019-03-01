@@ -49,9 +49,7 @@ slider.on('mousedown', function(eventObject){
     
 });
 slider.on('mouseup ', function(eventObject){
-    
     $(this).find(".bga").remove();
-    
 });
 
 // Math.abs(-2); // --> 2
