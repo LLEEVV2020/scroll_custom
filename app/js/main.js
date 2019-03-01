@@ -16,7 +16,7 @@ slider.on('mouseout', function(e){
         creatuRerunner($(this));
 
         /* Сдвигаем ползунок если сдвигаем курсор*/
-        makeScroll($(this), x); 
+        makeScrollAdd($(this), x); 
     }
 });
 
@@ -38,7 +38,7 @@ slider.on('mousedown', function(eventObject){
             creatuRerunner($(this).parents(".wrapper"));
 
             /* Сдвигаем ползунок если сдвигаем курсор*/
-            makeScroll2($(this).parents(".wrapper"), x); 
+            makeScroll($(this).parents(".wrapper"), x); 
             
             //console.log( x + ' - Вы нажали на кнопку мыши, над элементом "foo". Код нажатой клавиши - ' + eventObject.which);
         }

@@ -45,7 +45,7 @@ function creatuRerunner(scroll){
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/
 /* Вторая версия*/
-function makeScroll2(scroll, x){
+function makeScroll(scroll, x){
     var runner = scroll.find(".slider"); 
     
     var savepos = parseInt(runner.attr( "data-savepos"));
@@ -97,7 +97,7 @@ function makeScroll2(scroll, x){
 
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/
-function makeScroll(runner, x){
+function makeScrollAdd(runner, x){
     
     var margin_left = parseInt(runner.css( "margin-left"));
 
