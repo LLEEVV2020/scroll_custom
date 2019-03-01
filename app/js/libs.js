@@ -99,7 +99,7 @@ function makeScroll2(scroll, x){
 /* Сдвигаем ползунок если сдвигаем курсор*/
 function makeScroll(runner, x){
     
-    var margin_left = parseInt(runner.attr( "data-savepos"));
+    var margin_left = parseInt(runner.css( "margin-left"));
 
     runner.css({
         "margin-left": margin_left + "px"

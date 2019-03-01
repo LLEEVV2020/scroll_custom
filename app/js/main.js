@@ -1,5 +1,3 @@
-'use strict';
-
 let scroll = $(".scroll");
 let slider = $(".slider");
 
@@ -19,11 +17,11 @@ slider.on(' mouseout', function(e){
 
         /* Сдвигаем ползунок если сдвигаем курсор*/
         makeScroll($(this), x); 
-
     }
-    //console.log("77777777777");
 });
 
+// Событие mousedown срабатывает, когда кнопка 
+// мыши нажата над элементом.
 slider.on('mousedown', function(eventObject){
     
     /*Находим координаты курсора по оси Х*/
