@@ -6,9 +6,10 @@ $.each(scroll, function(key, val){ creatuRerunner($(val)) });
 
 // курсор выходит за гранницу палзунка 
 slider.on('mouseout', function(e){
+    let flag_bga= $(this).find(".bga");
     // если таблица не вмещается в контейнер, то 
     // создаём скролл
-    if(ifWider($(this)) ){
+    if(ifWider($(this)) && flag_bga.length !== 0 ){
 
         /*Находим координаты курсора по оси Х*/
         var x = getPosition(e).x;
