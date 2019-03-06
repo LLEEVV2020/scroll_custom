@@ -38,18 +38,17 @@ function ifWider(scroll){
 /**********************************************************/
 /** Добавляем в бегунок` ширину*/
 function creatuRerunner(scroll){
-    var runner = scroll.find(".slider");  
+    var runner = scroll.querySelector(".slider") === null ? scroll : scroll.querySelector(".slider");  
     var wrapper = scroll.closest(".wrapper");
-    var table = wrapper.find(".table");
+    var table = wrapper.querySelector(".table");
     
-    var wrapper_w = wrapper.width();
-    var table_w = table.width();
+    var wrapper_w = wrapper.clientWidth;
+    var table_w = table.clientWidth;
     
     // вычисляем сколько процентов составляет "бегунок" от общего размера видимого окна
     var sum = table_w / wrapper_w;
-    runner.css({
-        "width": "calc(" + "100% / " + sum + ")"
-    });
+    runner.style.width = "calc(" + "100% / " + sum + ")";
+
 }
 
 

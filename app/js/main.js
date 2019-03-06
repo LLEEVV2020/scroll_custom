@@ -2,7 +2,7 @@ let scroll = document.querySelectorAll(".scroll");
 let slider = $(".slider");
 
 // ставим ползунок при загрузке странницы
-$.each(scroll, function(key, val){ creatuRerunner($(val)) });
+$.each(scroll, function(key, val){ creatuRerunner(val) });
 
 // курсор выходит за гранницу палзунка 
 slider.on('mouseout', function(e){
@@ -15,7 +15,7 @@ slider.on('mouseout', function(e){
         var x = getPosition(e).x;
 
         /* Добавляем в бегунок правильную ширину*/
-        creatuRerunner($(this));
+        creatuRerunner(this);
 
         /* Сдвигаем ползунок если сдвигаем курсор*/
         makeScrollAdd($(this), x); 
@@ -37,7 +37,7 @@ slider.on('mousedown', function(eventObject){
             var x = getPosition(e).x;
 
             /* Добавляем в бегунок правильную ширину*/
-            creatuRerunner($(this).parents(".wrapper"));
+            creatuRerunner(this.closest(".wrapper"));
 
             /* Сдвигаем ползунок если сдвигаем курсор*/
             makeScroll($(this).parents(".wrapper"), x); 
