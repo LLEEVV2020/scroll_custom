@@ -100,8 +100,8 @@ function makeScroll(scroll, x){
     runner.css({
         "margin-left": margin_left + "px"
     });
-    runner.attr({"data-x": savex});
-    runner.attr({"data-savepos": savepos});
+    /*runner.setAttribute("data-x", savex);
+    runner.setAttribute("data-savepos", savepos);*/
     
 }
 
