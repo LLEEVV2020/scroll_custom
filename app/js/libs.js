@@ -111,9 +111,6 @@ function makeScrollAdd(runner, x){
     
     var margin_left = parseInt(runner.css( "margin-left"));
 
-    runner.css({
-        "margin-left": margin_left + "px"
-    });
     runner.attr({"data-x": x});
     runner.attr({"data-savepos": margin_left});
     
