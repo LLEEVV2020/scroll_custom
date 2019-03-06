@@ -29,10 +29,10 @@ function getPosition(e) {
 выходит ли за гранницу?*/
 function ifWider(scroll){
     
-    var wrapper = scroll.parents(".wrapper");
-    var table = wrapper.find(".table");
+    var wrapper = scroll.closest(".wrapper");
+    var table = wrapper.querySelector(".table");
     
-    return wrapper.width() < table.width();   
+    return wrapper.offsetWidth < table.offsetWidth;   
 }
 
 /**********************************************************/
@@ -42,8 +42,8 @@ function creatuRerunner(scroll){
     var wrapper = scroll.closest(".wrapper");
     var table = wrapper.querySelector(".table");
     
-    var wrapper_w = wrapper.clientWidth;
-    var table_w = table.clientWidth;
+    var wrapper_w = wrapper.offsetWidth;
+    var table_w = table.offsetWidth;
     
     // вычисляем сколько процентов составляет "бегунок" от общего размера видимого окна
     var sum = table_w / wrapper_w;

@@ -9,7 +9,7 @@ slider.on('mouseout', function(e){
     let flag_bga= this.querySelectorAll(".bga");
     // если таблица не вмещается в контейнер, то 
     // создаём скролл
-    if(ifWider($(this)) && flag_bga.length !== 0 ){
+    if(ifWider(this) && flag_bga.length !== 0 ){
 
         /*Находим координаты курсора по оси Х*/
         var x = getPosition(e).x;
@@ -32,7 +32,7 @@ slider.on('mousedown', function(eventObject){
     
     $( this ).find(".bga").mousemove( function (e) {
         
-        if(ifWider($(this)) ){
+        if(ifWider(this) ){
             
             var x = getPosition(e).x;
 
