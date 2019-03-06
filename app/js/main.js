@@ -2,7 +2,9 @@ let scroll = document.querySelectorAll(".scroll");
 let slider = $(".slider");
 
 // ставим ползунок при загрузке странницы
-$.each(scroll, function(key, val){ creatuRerunner(val) });
+scroll.forEach(function(item, i, scroll) {
+    creatuRerunner(item);
+});
 
 // курсор выходит за гранницу палзунка 
 slider.on('mouseout', function(e){
