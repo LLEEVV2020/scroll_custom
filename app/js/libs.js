@@ -51,6 +51,59 @@ function creatuRerunner(scroll){
 
 }
 
+/**********************************************************/
+/* Сдвигаем ползунок если сдвигаем курсор*/
+/* Вторая версия*/
+function makeScrollJs(scroll, x){
+    var runner = scroll.querySelector(".slider"); 
+    
+    var savepos = parseInt(runner.getAttribute( "data-savepos"));
+    var savex = parseInt(runner.getAttribute( "data-x"));
+    
+    var scrollWidth = parseInt(scroll.style.width);
+    var runnerWidth = parseInt(runner.offsetWidth);
+    // ставим левый отступ
+    var margin_left;
+    
+    var stepLocal = Math.abs(savex - x);
+    
+    //console.log(Math.abs(savex - x));
+    
+    // сдвигаем влево
+    if(savex > x){
+        // ставим ограничение чтоб не уходило в левую сторону за гранницу
+        if(savepos > 0){
+            if(0 > (savepos - stepLocal)){
+               savepos = 0;
+            }
+            else{
+                savepos = savepos - stepLocal; 
+            }
+        }
+    }  
+    // сдвигаем вправо
+    else{
+        // ставим ограничение чтоб не уходило в правую сторону за гранницу
+        if(savepos + runnerWidth < scrollWidth){
+            if((scrollWidth - runnerWidth) < (savepos + stepLocal)){
+               savepos = scrollWidth - runnerWidth;
+            }
+            else{
+                savepos = savepos + stepLocal; 
+            }
+        } 
+    }
+    margin_left = savepos;
+    savex = x;
+    runner.style.marginLeft = margin_left + "px";
+    // runner.css({
+    //     "margin-left": margin_left + "px"
+    // });
+    /*runner.setAttribute("data-x", savex);
+    runner.setAttribute("data-savepos", savepos);*/
+    
+}
+
 
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/

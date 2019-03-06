@@ -40,6 +40,7 @@ slider.on('mousedown', function(eventObject){
             creatuRerunner(this.closest(".wrapper"));
 
             /* Сдвигаем ползунок если сдвигаем курсор*/
+            //makeScrollJs(this.closest(".wrapper"), x); 
             makeScroll($(this).parents(".wrapper"), x); 
             
             //console.log( x + ' - Вы нажали на кнопку мыши, над элементом "foo". Код нажатой клавиши - ' + eventObject.which);
