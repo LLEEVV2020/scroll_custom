@@ -18,7 +18,7 @@ slider.on('mouseout', function(e){
         creatuRerunner(this);
 
         /* Сдвигаем ползунок если сдвигаем курсор*/
-        makeScrollAdd($(this), x); 
+        makeScrollAdd(this, x); 
     }
 });
 
