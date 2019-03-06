@@ -5,68 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>test</title>
+    
+    <style>
+       body{
+           margin: 0;
+           display: flex;
+           flex-wrap: wrap;
+       }
+       a{
+           width: 20%;
+           height: 50px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           color: #fff;
+           text-decoration: none;
+       }
+        a:nth-child(4n+4){
+            background-color: green;
+        }
+        a:nth-child(4n+3){
+            background-color:blueviolet;
+        }
+        a:nth-child(4n+2){
+            background-color:coral;
+        }
+        a:nth-child(4n+1){
+            background-color:dodgerblue;
+        }
+        a:hover:after{
+            content: "выбрал";
+        }
+
+    </style>
+    
 </head>
 <body>
-<style>
-    #block{
-        height: 60vh;
-        width: 98vw;
-        background-color: #43f;
-        display: flex;
-    }
-    #block a{
-        width: 30%;
-        height: 36vh;
-        margin: 2.5%;
-        background-color: red;
-    }
-    #block > div{
-        width: 30%;
-        height: 43vh;
-        background-color: green;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    #too{
-        width: 50%;
-        height: 30vh;
-        background-color: rgb(251, 255, 0);
-        
-    }
-</style>
-    <div id="block" title="Я - блок">
-        <a href="#">Я ссылка в никуда</a>
-        <a href="http://site.ru">Я ссылка на сайт</a>
-        <div>
-            <div id="too"></div>
-        </div>
-    </div>
+
+    <a href="#1"></a>
+    <a href="#2"></a>
+    <a href="#3"></a>
+    <a href="#4"></a>
+    <a href="#5"></a>
+    <a href="#6"></a>
+    <a href="#7"></a>
+    <a href="#8"></a>
+    <a href="#9"></a>
+    <a href="#10"></a>
 
     <script src="js/polyfill_custom.js"> </script>
     <script>
-        var div = document.querySelector("#too"); //Это элемент от которого мы начнем поиск
+    "use strict";
 
-        console.log(div.closest("#block")); //Результат - самый первый блок древа выше
-        console.log(div.closest("div")); //Сам блок #too и будет результатом, так как он подходит под селектор "div"
-        console.log(div.closest("a")); //null - В предках #too нет не одного тега "a"!
-        console.log(div.closest("div[title]")) //#block - так как ближе нет блоков с атрибутом title.    
-    
-        function creatuRerunner(scroll){
-            var runner = scroll.querySelector(".slider") === null ? scroll : scroll.querySelector(".slider");  
-            var wrapper = scroll.closest(".wrapper");
-            var table = wrapper.querySelector(".table");
-            
-            var wrapper_w = wrapper.clientWidth;
-            var table_w = table.clientWidth;
-            
-            // вычисляем сколько процентов составляет "бегунок" от общего размера видимого окна
-            var sum = table_w / wrapper_w;
-            // runner.css({
-            //     "width": "calc(" + "100% / " + sum + ")"
-            // });
-            runner.style.width = "calc(" + "100% / " + sum + ")";
-        }
+    var aTags = document.querySelectorAll('a');
+
+    for(var i=0; i<aTags.length; i++){
+        aTags[i].addEventListener('click', function(){
+            var href = this.href;
+            alert(href);
+        });
+    }
     
     </script>
 </body>
