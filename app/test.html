@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test</title>
+</head>
+<body>
+<style>
+    #block{
+        height: 60vh;
+        width: 98vw;
+        background-color: #43f;
+        display: flex;
+    }
+    #block a{
+        width: 30%;
+        height: 36vh;
+        margin: 2.5%;
+        background-color: red;
+    }
+    #block > div{
+        width: 30%;
+        height: 43vh;
+        background-color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #too{
+        width: 50%;
+        height: 30vh;
+        background-color: rgb(251, 255, 0);
+        
+    }
+</style>
+    <div id="block" title="Я - блок">
+        <a href="#">Я ссылка в никуда</a>
+        <a href="http://site.ru">Я ссылка на сайт</a>
+        <div>
+            <div id="too"></div>
+        </div>
+    </div>
+
+    <script src="js/polyfill_custom.js"> </script>
+    <script>
+        var div = document.querySelector("#too"); //Это элемент от которого мы начнем поиск
+
+        div.closest("#block"); //Результат - самый первый блок древа выше
+        div.closest("div"); //Сам блок #too и будет результатом, так как он подходит под селектор "div"
+        div.closest("a"); //null - В предках #too нет не одного тега "a"!
+        div.closest("div[title]") //#block - так как ближе нет блоков с атрибутом title.    
+    </script>
+</body>
+</html>
