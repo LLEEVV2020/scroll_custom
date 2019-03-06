@@ -1,6 +1,7 @@
 let scroll = document.querySelectorAll(".scroll");
 let slider = $(".slider");
 
+
 // ставим ползунок при загрузке странницы
 scroll.forEach(function(item, i, scroll) {
     creatuRerunner(item);
@@ -52,6 +53,8 @@ slider.on('mousedown', function(eventObject){
 });
 slider.on('mouseup ', function(eventObject){
     $(this).find(".bga").remove();
+
+    //this.querySelectorAll(".bga").remove();
 });
 
 // Math.abs(-2); // --> 2
