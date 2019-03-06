@@ -1,4 +1,4 @@
-if(document.documentElement.closest){
+if(document.documentElement.closest === undefined){
     // Element.prototype.matches
    Element.prototype.matches = Element.prototype.webkitMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.mozMatchesSelector || function matches(selector) {
         
@@ -13,6 +13,9 @@ if(document.documentElement.closest){
         return !!elements[index];
     };
 
+    /**
+     * Альтернатива функции parents на jquery
+     */
     // Element.prototype.closest
     Element.prototype.closest = function closest(selector) {
         var node = this;

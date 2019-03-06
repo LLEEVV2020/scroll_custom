@@ -39,7 +39,7 @@ function ifWider(scroll){
 /** Добавляем в бегунок` ширину*/
 function creatuRerunner(scroll){
     var runner = scroll.find(".slider");  
-    var wrapper = scroll.parents(".wrapper");
+    var wrapper = scroll.closest(".wrapper");
     var table = wrapper.find(".table");
     
     var wrapper_w = wrapper.width();

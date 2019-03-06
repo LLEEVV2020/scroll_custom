@@ -47,10 +47,10 @@
     <script>
         var div = document.querySelector("#too"); //Это элемент от которого мы начнем поиск
 
-        div.closest("#block"); //Результат - самый первый блок древа выше
-        div.closest("div"); //Сам блок #too и будет результатом, так как он подходит под селектор "div"
-        div.closest("a"); //null - В предках #too нет не одного тега "a"!
-        div.closest("div[title]") //#block - так как ближе нет блоков с атрибутом title.    
+        console.log(div.closest("#block")); //Результат - самый первый блок древа выше
+        console.log(div.closest("div")); //Сам блок #too и будет результатом, так как он подходит под селектор "div"
+        console.log(div.closest("a")); //null - В предках #too нет не одного тега "a"!
+        console.log(div.closest("div[title]")) //#block - так как ближе нет блоков с атрибутом title.    
     </script>
 </body>
 </html>
