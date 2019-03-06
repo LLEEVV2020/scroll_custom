@@ -1,4 +1,4 @@
-let scroll = $(".scroll");
+let scroll = document.querySelectorAll(".scroll");
 let slider = $(".slider");
 
 // ставим ползунок при загрузке странницы

@@ -69,7 +69,7 @@ function makeScroll(scroll, x){
     
     var stepLocal = Math.abs(savex - x);
     
-    console.log(Math.abs(savex - x));
+    //console.log(Math.abs(savex - x));
     
     // сдвигаем влево
     if(savex > x){

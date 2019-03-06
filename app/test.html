@@ -51,6 +51,23 @@
         console.log(div.closest("div")); //Сам блок #too и будет результатом, так как он подходит под селектор "div"
         console.log(div.closest("a")); //null - В предках #too нет не одного тега "a"!
         console.log(div.closest("div[title]")) //#block - так как ближе нет блоков с атрибутом title.    
+    
+        function creatuRerunner(scroll){
+            var runner = scroll.querySelector(".slider") === null ? scroll : scroll.querySelector(".slider");  
+            var wrapper = scroll.closest(".wrapper");
+            var table = wrapper.querySelector(".table");
+            
+            var wrapper_w = wrapper.clientWidth;
+            var table_w = table.clientWidth;
+            
+            // вычисляем сколько процентов составляет "бегунок" от общего размера видимого окна
+            var sum = table_w / wrapper_w;
+            // runner.css({
+            //     "width": "calc(" + "100% / " + sum + ")"
+            // });
+            runner.style.width = "calc(" + "100% / " + sum + ")";
+        }
+    
     </script>
 </body>
 </html>
