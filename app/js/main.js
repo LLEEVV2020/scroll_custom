@@ -13,6 +13,7 @@ let slider = document.querySelectorAll(".slider");
 for(var i=0; i<slider.length; i++){
     
     slider[i].onmouseout = function(e){
+        
         let flag_bga= this.querySelectorAll(".bga");
         // если таблица не вмещается в контейнер, то 
         // создаём скролл
@@ -56,7 +57,6 @@ for(var i=0; i<slider.length; i++){
             }
             return false;
         };
-        
         return false;
     };
     slider[i].onmouseup = function(eventObject){
@@ -69,4 +69,19 @@ for(var i=0; i<slider.length; i++){
         return false;
     };
 
+}
+
+/**************************************************************
+ * Вылавливает редкую ошибку. Проявлялась когда обводишь текст,
+ * кликаешь на бегунок и курсором выходишь за экран.
+ */
+window.onmouseout=function(event){ 
+    if(event.relatedTarget ===null ){
+        var el_del = document.querySelector(".bga");
+        if(el_del === undefined || el_del === null){
+            return false;
+        }
+        el_del.remove();
+    } 
+    return false;
 }
