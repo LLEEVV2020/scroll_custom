@@ -11,8 +11,9 @@
            margin: 0;
            display: flex;
            flex-wrap: wrap;
+           font-size: 2rem;
        }
-       a{
+       body > a{
            width: 20%;
            height: 50px;
            display: flex;
@@ -20,7 +21,11 @@
            align-items: center;
            color: #fff;
            text-decoration: none;
-       }
+        }
+       
+        body > a:hover:after{
+            content: "выбрал";
+        }
         a:nth-child(4n+4){
             background-color: green;
         }
@@ -33,10 +38,6 @@
         a:nth-child(4n+1){
             background-color:dodgerblue;
         }
-        a:hover:after{
-            content: "выбрал";
-        }
-
     </style>
     
 </head>
@@ -53,18 +54,24 @@
     <a href="#9"></a>
     <a href="#10"></a>
 
+    <ul id="menu" class="menu">
+        <li><a href="/php">PHP</a></li>
+        <li><a href="/html">HTML</a></li>
+        <li><a href="/javascript">JavaScript</a></li>
+        <li><a href="/flash">Flash</a></li>
+    </ul>
+
     <script src="js/polyfill_custom.js"> </script>
     <script>
-    "use strict";
 
-    var aTags = document.querySelectorAll('a');
+        menu.onclick = function(event) {
+        if (event.target.nodeName != 'A') return;
 
-    for(var i=0; i<aTags.length; i++){
-        aTags[i].addEventListener('click', function(){
-            var href = this.href;
-            alert(href);
-        });
-    }
+        var href = event.target.getAttribute('href');
+        alert(href);
+
+        return false; // prevent url change
+        };
     
     </script>
 </body>
