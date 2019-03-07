@@ -12,7 +12,7 @@ let slider = document.querySelectorAll(".slider");
 
 for(var i=0; i<slider.length; i++){
     
-    slider[i].addEventListener('mouseout', function(e){
+    slider[i].onmouseout = function(e){
         let flag_bga= this.querySelectorAll(".bga");
         // если таблица не вмещается в контейнер, то 
         // создаём скролл
@@ -27,10 +27,11 @@ for(var i=0; i<slider.length; i++){
             /* Сдвигаем ползунок если сдвигаем курсор*/
             makeScrollAdd(this, x); 
         }
-    });
+        return false;
+    };
     // Событие mousedown срабатывает, когда кнопка 
     // мыши нажата над элементом.
-    slider[i].addEventListener('mousedown', function(eventObject){
+    slider[i].onmousedown = function(eventObject){
         
         /*Находим координаты курсора по оси Х*/
         if(this.children.length < 1){
@@ -39,7 +40,7 @@ for(var i=0; i<slider.length; i++){
             this.appendChild(div_bga);
         }
         //console.log(this);
-        this.querySelector(".bga").addEventListener('mousemove', function (e) {
+        this.querySelector(".bga").onmousemove = function (e) {
             
             if(ifWider(this) ){
                 
@@ -53,17 +54,19 @@ for(var i=0; i<slider.length; i++){
                 
                 //console.log( x + ' - Вы нажали на кнопку мыши, над элементом "foo". Код нажатой клавиши - ' + eventObject.which);
             }
-        });
+            return false;
+        };
         
-    });
-    slider[i].addEventListener('mouseup', function(eventObject){
+        return false;
+    };
+    slider[i].onmouseup = function(eventObject){
         //$(this).find(".bga").remove();
     
         var el_del = this.querySelector(".bga");
         if(el_del !== undefined){
             el_del.remove();
         }
-        
-    });
+        return false;
+    };
 
 }
