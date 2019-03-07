@@ -105,7 +105,9 @@ function makeScroll(scroll, x){
 
 
 /**********************************************************/
-/* Сдвигаем ползунок если сдвигаем курсор*/
+/* Сдвигаем ползунок если сдвигаем курсор
+*  Скрипт по входу за экран браузера
+*/
 function makeScrollAdd(runner, x){
     
     var margin_left = runner.style.marginLeft === "" ? 0 : parseInt(runner.style.marginLeft);
