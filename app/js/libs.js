@@ -55,13 +55,13 @@ function creatuRerunner(scroll){
 /* Сдвигаем ползунок если сдвигаем курсор*/
 /* Вторая версия*/
 function makeScrollJs(scroll, x){
-    var runner = scroll.querySelector(".slider"); 
+    var runner = $(scroll).find(".slider"); 
     
-    var savepos = parseInt(runner.getAttribute( "data-savepos"));
-    var savex = parseInt(runner.getAttribute( "data-x"));
+    var savepos = parseInt(runner.attr( "data-savepos"));
+    var savex = parseInt(runner.attr( "data-x"));
     
-    var scrollWidth = parseInt(scroll.style.width);
-    var runnerWidth = parseInt(runner.offsetWidth);
+    var scrollWidth = parseInt($(scroll).css("width"));
+    var runnerWidth = parseInt(runner.css("width"));
     // ставим левый отступ
     var margin_left;
     
@@ -95,12 +95,10 @@ function makeScrollJs(scroll, x){
     }
     margin_left = savepos;
     savex = x;
-    runner.style.marginLeft = margin_left + "px";
-    // runner.css({
-    //     "margin-left": margin_left + "px"
-    // });
-    /*runner.setAttribute("data-x", savex);
-    runner.setAttribute("data-savepos", savepos);*/
+
+    runner.css({
+        "margin-left": margin_left + "px"
+    });
     
 }
 

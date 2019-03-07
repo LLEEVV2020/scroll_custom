@@ -30,10 +30,12 @@ for(var i=0; i<slider.length; i++){
     slider[i].addEventListener('mousedown', function(eventObject){
         
         /*Находим координаты курсора по оси Х*/
-        var div_bga =  document.createElement('div');
-        div_bga.className = "bga";
-        this.appendChild(div_bga);
-        console.log(this);
+        if(this.children.length < 1){
+            var div_bga =  document.createElement('div');
+            div_bga.className = "bga";
+            this.appendChild(div_bga);
+        }
+        //console.log(this);
         this.querySelector(".bga").addEventListener('mousemove', function (e) {
             
             if(ifWider(this) ){
@@ -44,8 +46,8 @@ for(var i=0; i<slider.length; i++){
                 creatuRerunner(this.closest(".wrapper"));
 
                 /* Сдвигаем ползунок если сдвигаем курсор*/
-                //makeScrollJs(this.closest(".wrapper"), x); 
-                makeScroll($(this).parents(".wrapper"), x); 
+                makeScrollJs(this.closest(".wrapper"), x); 
+                //makeScroll($(this).parents(".wrapper"), x); 
                 
                 //console.log( x + ' - Вы нажали на кнопку мыши, над элементом "foo". Код нажатой клавиши - ' + eventObject.which);
             }
@@ -55,7 +57,11 @@ for(var i=0; i<slider.length; i++){
     slider[i].addEventListener('mouseup', function(eventObject){
         //$(this).find(".bga").remove();
     
-        this.querySelector(".bga").remove();
+        var el_del = this.querySelector(".bga");
+        if(el_del !== undefined){
+            el_del.remove();
+        }
+        
     });
 
 }
