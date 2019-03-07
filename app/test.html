@@ -61,16 +61,22 @@
         <li><a href="/flash">Flash</a></li>
     </ul>
 
+    <input id="elem" type="button" value="Нажми меня" />
+
     <script src="js/polyfill_custom.js"> </script>
     <script>
 
         menu.onclick = function(event) {
-        if (event.target.nodeName != 'A') return;
+            if (event.target.nodeName != 'A') return;
 
-        var href = event.target.getAttribute('href');
-        alert(href);
+            var href = event.target.getAttribute('href');
+            alert(href);
 
-        return false; // prevent url change
+            return false; // prevent url change
+        };
+
+        elem.onclick = function() {
+            alert( 'Спасибо' );
         };
     
     </script>
