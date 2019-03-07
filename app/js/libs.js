@@ -60,7 +60,7 @@ function makeScrollJs(scroll, x){
     var savepos = parseInt(runner.attr( "data-savepos"));
     var savex = parseInt(runner.attr( "data-x"));
     
-    var scrollWidth = parseInt($(scroll).css("width"));
+    var scrollWidth = parseInt(scroll.offsetWidth);
     var runnerWidth = parseInt(runner.css("width"));
     // ставим левый отступ
     var margin_left;
