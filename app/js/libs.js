@@ -54,14 +54,14 @@ function creatuRerunner(scroll){
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/
 /* Вторая версия*/
-function makeScrollJs(scroll, x){
-    var runner = $(scroll).find(".slider"); 
+function makeScroll(scroll, x){
+    var runner = scroll.querySelector(".slider"); 
     
-    var savepos = parseInt(runner.attr( "data-savepos"));
-    var savex = parseInt(runner.attr( "data-x"));
+    var savepos = parseInt(runner.getAttribute( "data-savepos"));
+    var savex = parseInt(runner.getAttribute( "data-x"));
     
     var scrollWidth = parseInt(scroll.offsetWidth);
-    var runnerWidth = parseInt(runner.css("width"));
+    var runnerWidth = parseInt(runner.offsetWidth);
     // ставим левый отступ
     var margin_left;
     
@@ -96,65 +96,13 @@ function makeScrollJs(scroll, x){
     margin_left = savepos;
     savex = x;
 
-    runner.css({
-        "margin-left": margin_left + "px"
-    });
+    runner.style.marginLeft = margin_left + "px";
     
-}
-
-
-/**********************************************************/
-/* Сдвигаем ползунок если сдвигаем курсор*/
-/* Вторая версия*/
-function makeScroll(scroll, x){
-    var runner = scroll.find(".slider"); 
-    
-    var savepos = parseInt(runner.attr( "data-savepos"));
-    var savex = parseInt(runner.attr( "data-x"));
-    
-    var scrollWidth = parseInt(scroll.css("width"));
-    var runnerWidth = parseInt(runner.css("width"));
-    // ставим левый отступ
-    var margin_left;
-    
-    var stepLocal = Math.abs(savex - x);
-    
-    //console.log(Math.abs(savex - x));
-    
-    // сдвигаем влево
-    if(savex > x){
-        // ставим ограничение чтоб не уходило в левую сторону за гранницу
-        if(savepos > 0){
-            if(0 > (savepos - stepLocal)){
-               savepos = 0;
-            }
-            else{
-                savepos = savepos - stepLocal; 
-            }
-        }
-    }  
-    // сдвигаем вправо
-    else{
-        // ставим ограничение чтоб не уходило в правую сторону за гранницу
-        if(savepos + runnerWidth < scrollWidth){
-            if((scrollWidth - runnerWidth) < (savepos + stepLocal)){
-               savepos = scrollWidth - runnerWidth;
-            }
-            else{
-                savepos = savepos + stepLocal; 
-            }
-        } 
-    }
-    margin_left = savepos;
-    savex = x;
-
-    runner.css({
-        "margin-left": margin_left + "px"
-    });
     /*runner.setAttribute("data-x", savex);
     runner.setAttribute("data-savepos", savepos);*/
-    
 }
+
+
 
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/
