@@ -1,13 +1,17 @@
 let scroll = document.querySelectorAll(".scroll");
 
 // ставим ползунок при загрузке странницы
-scroll.forEach(function(item, i, scroll) {
+// scroll.forEach(function(item, i, scroll) {
+//     creatuRerunner(item);
+// });
+[].forEach.call(scroll, function(item) {
     creatuRerunner(item);
 });
 
 let slider = document.querySelectorAll(".slider");
 
 for(var i=0; i<slider.length; i++){
+    
     slider[i].addEventListener('mouseout', function(e){
         let flag_bga= this.querySelectorAll(".bga");
         // если таблица не вмещается в контейнер, то 
