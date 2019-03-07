@@ -15,7 +15,7 @@ gulp.task('sass', function() {
 });
 // Compile babel into js 
 gulp.task('js', function() {
-    return gulp.src(["app/js/libs.js", "app/js/main.js"])
+    return gulp.src(["app/js/libs.js", "app/js/main.js", "app/js/mobil.js"])
         .pipe(babel())
         .pipe(gulp.dest("app/babel"));
 });

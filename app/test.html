@@ -7,7 +7,7 @@
     <title>test</title>
     
     <style>
-       body{
+       /*body{
            margin: 0;
            display: flex;
            flex-wrap: wrap;
@@ -37,48 +37,40 @@
         }
         a:nth-child(4n+1){
             background-color:dodgerblue;
-        }
+        }*/
+
+        html, body, div {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+div {
+    height:200%;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+::-webkit-scrollbar:vertical {
+    width: 12px;
+}
+::-webkit-scrollbar:horizontal {
+    height: 12px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff;
+}
     </style>
     
 </head>
 <body>
-
-    <a href="#1"></a>
-    <a href="#2"></a>
-    <a href="#3"></a>
-    <a href="#4"></a>
-    <a href="#5"></a>
-    <a href="#6"></a>
-    <a href="#7"></a>
-    <a href="#8"></a>
-    <a href="#9"></a>
-    <a href="#10"></a>
-
-    <ul id="menu" class="menu">
-        <li><a href="/php">PHP</a></li>
-        <li><a href="/html">HTML</a></li>
-        <li><a href="/javascript">JavaScript</a></li>
-        <li><a href="/flash">Flash</a></li>
-    </ul>
-
-    <input id="elem" type="button" value="Нажми меня" />
-
-    <script src="js/polyfill_custom.js"> </script>
-    <script>
-
-        menu.onclick = function(event) {
-            if (event.target.nodeName != 'A') return;
-
-            var href = event.target.getAttribute('href');
-            alert(href);
-
-            return false; // prevent url change
-        };
-
-        elem.onclick = function() {
-            alert( 'Спасибо' );
-        };
+        <div></div>
     
-    </script>
 </body>
 </html>
