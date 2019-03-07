@@ -1,61 +1,65 @@
 let scroll = document.querySelectorAll(".scroll");
-let slider = $(".slider");
-
 
 // ставим ползунок при загрузке странницы
 scroll.forEach(function(item, i, scroll) {
     creatuRerunner(item);
 });
 
-// курсор выходит за гранницу палзунка 
-slider.on('mouseout', function(e){
-    let flag_bga= this.querySelectorAll(".bga");
-    // если таблица не вмещается в контейнер, то 
-    // создаём скролл
-    if(ifWider(this) && flag_bga.length !== 0 ){
+let slider = document.querySelectorAll(".slider");
 
-        /*Находим координаты курсора по оси Х*/
-        var x = getPosition(e).x;
-
-        /* Добавляем в бегунок правильную ширину*/
-        creatuRerunner(this);
-
-        /* Сдвигаем ползунок если сдвигаем курсор*/
-        makeScrollAdd(this, x); 
-    }
-});
-
-// Событие mousedown срабатывает, когда кнопка 
-// мыши нажата над элементом.
-slider.on('mousedown', function(eventObject){
+for(var i=0; i<slider.length; i++){
+    slider[i].addEventListener('mouseout', function(e){
+        let flag_bga= this.querySelectorAll(".bga");
+        // если таблица не вмещается в контейнер, то 
+        // создаём скролл
+        if(ifWider(this) && flag_bga.length !== 0 ){
     
-    /*Находим координаты курсора по оси Х*/
-    
-    $(this).prepend('<div class="bga"></div>');
-    
-    $( this ).find(".bga").mousemove( function (e) {
-        
-        if(ifWider(this) ){
-            
+            /*Находим координаты курсора по оси Х*/
             var x = getPosition(e).x;
-
+    
             /* Добавляем в бегунок правильную ширину*/
-            creatuRerunner(this.closest(".wrapper"));
-
+            creatuRerunner(this);
+    
             /* Сдвигаем ползунок если сдвигаем курсор*/
-            makeScroll(this.closest(".wrapper"), x); 
-            
-            
-            //console.log( x + ' - Вы нажали на кнопку мыши, над элементом "foo". Код нажатой клавиши - ' + eventObject.which);
+            makeScrollAdd(this, x); 
         }
     });
+    // Событие mousedown срабатывает, когда кнопка 
+    // мыши нажата над элементом.
+    slider[i].addEventListener('mousedown', function(eventObject){
+        
+        /*Находим координаты курсора по оси Х*/
+        if(this.children.length < 1){
+            var div_bga =  document.createElement('div');
+            div_bga.className = "bga";
+            this.appendChild(div_bga);
+        }
+        //console.log(this);
+        this.querySelector(".bga").addEventListener('mousemove', function (e) {
+            
+            if(ifWider(this) ){
+                
+                var x = getPosition(e).x;
+
+                /* Добавляем в бегунок правильную ширину*/
+                creatuRerunner(this.closest(".wrapper"));
+
+                /* Сдвигаем ползунок если сдвигаем курсор*/
+                makeScroll(this.closest(".wrapper"), x); 
+                
+                //console.log( x + ' - Вы нажали на кнопку мыши, над элементом "foo". Код нажатой клавиши - ' + eventObject.which);
+            }
+        });
+        
+    });
+    slider[i].addEventListener('mouseup', function(eventObject){
+        //$(this).find(".bga").remove();
     
-});
-slider.on('mouseup ', function(eventObject){
-    $(this).find(".bga").remove();
+        var el_del = this.querySelector(".bga");
+        if(el_del !== undefined){
+            el_del.remove();
+        }
+        
+    });
 
-    //this.querySelectorAll(".bga").remove();
-});
-
-// Math.abs(-2); // --> 2
-
+}
