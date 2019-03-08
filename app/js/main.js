@@ -1,12 +1,10 @@
 (function(){
+window.addEventListener('load', function(){
 
 if ("ontouchstart" in document.documentElement) {
-    console.log("It a touch screen device.");
     mobile();
 }
 else {
-    console.log("Комп");
-
     let scroll = document.querySelectorAll(".scroll");
 
     // ставим ползунок при загрузке странницы
@@ -96,4 +94,5 @@ else {
     }
 }
 
+}, false);
 })();
