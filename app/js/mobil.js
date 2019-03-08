@@ -1,23 +1,5 @@
 function mobile() {
-    
-    function isContained(m, e){
-        var e=e||window.event;
-        var c=/(click)|(mousedown)|(mouseup)/i.test(e.type)? e.target : ( e.relatedTarget || ((e.type=="mouseover")? e.fromElement : e.toElement)  );
-        while (c && c!=m)
-            try {
-                c=c.parentNode;
-            } 
-            catch(e){
-                c=m;
-            }
-        if (c==m)
-            return true;
-        else
-            return false;
-    }
-    
-
-        
+     
     /*
     * Получаем интересующие нас элементы
     */
