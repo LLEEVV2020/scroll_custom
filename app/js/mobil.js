@@ -1,4 +1,4 @@
-(function(){
+function mobile() {
     
     function isContained(m, e){
         var e=e||window.event;
@@ -92,4 +92,4 @@
     
     }, false);
         
-    })();
+}
