@@ -1,44 +1,43 @@
 function mobile() {
-     
-    /*
-    * Получаем интересующие нас элементы
-    */
-    var wrapscroll = document.getElementsByClassName('wrapper');
-    wrapscroll = wrapscroll[0];
-    var statusdiv = document.getElementsByClassName('statusdiv');
-    statusdiv = statusdiv[0];
+
+let wrapscroll = document.getElementsByClassName('wrapper');
+let statusdiv = document.getElementsByClassName('statusdiv');
+statusdiv = statusdiv[0];
+
+
+let ontouchstartinwindow = !!('ontouchstart' in window);
+let ontouchstartdocumentdocumentElement =!!('ontouchstart' in document.documentElement);
+let windowontouchstart =  !!window.ontouchstart 
+let windowTouch = !!window.Touch; 
+let windowonmsgesturechange = !!window.onmsgesturechange 
+let windowDocumentTouch = (window.DocumentTouch && window.document instanceof window.DocumentTouch);
+
+for(let i=0; i<wrapscroll.length; i++){
     
-    var startx = 0;
-    var dist = 0;
-    var ontouchstartinwindow = !!('ontouchstart' in window);
-    var ontouchstartdocumentdocumentElement =!!('ontouchstart' in document.documentElement);
-    var windowontouchstart =  !!window.ontouchstart 
-    var windowTouch = !!window.Touch; 
-    var windowonmsgesturechange = !!window.onmsgesturechange 
-    var windowDocumentTouch = (window.DocumentTouch && window.document instanceof window.DocumentTouch);
+    let startx = 0;
+    let dist = 0;
     
     
-    wrapscroll.addEventListener('touchstart', function(e){
-        var touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
+    wrapscroll[i].addEventListener('touchstart', function(e){
+        let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
         startx = parseInt(touchobj.clientX);
         statusdiv.innerHTML = 'Событие: touchstart<br /> ClientX: ' + startx + 'px';
         e.preventDefault();
     }, false);
     
-    wrapscroll.addEventListener('touchmove', function(e){
-        var touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
-        var dist = parseInt(touchobj.clientX) - startx;
+    wrapscroll[i].addEventListener('touchmove', function(e){
+        let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
+        let dist = parseInt(touchobj.clientX) - startx;
         statusdiv.innerHTML = 'Событие: touchmove<br /> Гориз. перемещение: ' + dist + 'pxxx' + ' ' + ontouchstartinwindow + ' ' + ontouchstartdocumentdocumentElement  + ' ' + windowontouchstart + ' ' + windowTouch + ' ' + windowonmsgesturechange + ' ' + windowDocumentTouch + ' ';
         e.preventDefault();
     }, false);
     
-    wrapscroll.addEventListener('touchend', function(e){
-        var touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
+    wrapscroll[i].addEventListener('touchend', function(e){
+        let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
         statusdiv.innerHTML = 'Событие: touchend<br /> Координаты точки x: ' + touchobj.clientX + 'px ????';
         e.preventDefault();
     }, false);
     
     
-
-        
+}        
 }
