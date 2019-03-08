@@ -18,10 +18,6 @@ function mobile() {
     var windowDocumentTouch = (window.DocumentTouch && window.document instanceof window.DocumentTouch);
     
     
-    var detecttouch = !!('ontouchstart' in window) || !!('ontouchstart' in document.documentElement) || !!window.ontouchstart || !!window.Touch || !!window.onmsgesturechange || (window.DocumentTouch && window.document instanceof window.DocumentTouch);
-    
-    var ismousedown = false;
-    
     wrapscroll.addEventListener('touchstart', function(e){
         var touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
         startx = parseInt(touchobj.clientX);
@@ -42,35 +38,6 @@ function mobile() {
         e.preventDefault();
     }, false);
     
-    if (detecttouch){
-
-        document.body.addEventListener('mousedown', function(e){
-            if ( isContained(wrapscroll, e) ){
-                var touchobj = e;
-                ismousedown = true;
-                startx = parseInt(touchobj.clientX);
-                statusdiv.innerHTML = 'Событие: touchstart<br /> ClientX: ' + startx + 'px';
-                e.preventDefault();
-            }
-        }, false);
-        
-        document.body.addEventListener('mousemove', function(e){
-            if (ismousedown){
-                var touchobj = e;
-                var dist = parseInt(touchobj.clientX) - startx;
-                statusdiv.innerHTML = 'Событие: touchmove<br /> Гориз. перемещение: ' + dist + 'px';
-                e.preventDefault();
-            }
-        }, false);
-        
-        document.body.addEventListener('mouseup', function(e){
-            var touchobj = e;
-            ismousedown = false;
-            statusdiv.innerHTML = 'Событие: touchend<br /> Координаты точки x: ' + touchobj.clientX + 'px'
-            e.preventDefault();
-        }, false);
-
-    }
     
 
         
