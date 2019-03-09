@@ -5,13 +5,13 @@ if ("ontouchstart" in document.documentElement) {
     mobile();
 }
 else {
-    let scroll = document.querySelectorAll(".scroll");
+    let cus_scroll = document.querySelectorAll(".cus_scroll");
 
     // ставим ползунок при загрузке странницы
-    [].forEach.call(scroll, function(item) {
+    [].forEach.call(cus_scroll, function(item) {
         creatuRerunner(item);
     });
-    // scroll.forEach(function(item, i, scroll) {
+    // cus_scroll.forEach(function(item, i, cus_scroll) {
     //     creatuRerunner(item);
     // });
 

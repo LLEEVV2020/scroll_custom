@@ -45,9 +45,9 @@ function isContained(m, e){
 /**********************************************************
 * Проверяем внутреннее содержимое 
 * выходит ли за гранницу?*/
-function ifWider(scroll){
+function ifWider(cus_scroll){
     
-    var wrap_scroll = scroll.closest(".wrap_scroll");
+    var wrap_scroll = cus_scroll.closest(".wrap_scroll");
     var table = wrap_scroll.querySelector(".table");
     
     return wrap_scroll.offsetWidth < table.offsetWidth;   
@@ -55,9 +55,9 @@ function ifWider(scroll){
 
 /**********************************************************/
 /** Добавляем в бегунок` ширину*/
-function creatuRerunner(scroll){
-    var runner = scroll.querySelector(".slider") === null ? scroll : scroll.querySelector(".slider");  
-    var wrap_scroll = scroll.closest(".wrap_scroll");
+function creatuRerunner(cus_scroll){
+    var runner = cus_scroll.querySelector(".slider") === null ? cus_scroll : cus_scroll.querySelector(".slider");  
+    var wrap_scroll = cus_scroll.closest(".wrap_scroll");
     var table = wrap_scroll.querySelector(".table");
     
     var wrap_scroll_w = wrap_scroll.offsetWidth;
@@ -72,13 +72,13 @@ function creatuRerunner(scroll){
 /**********************************************************/
 /* Сдвигаем ползунок если сдвигаем курсор*/
 /* Вторая версия*/
-function makeScroll(scroll, x){
-    var runner = scroll.querySelector(".slider"); 
+function makeScroll(cus_scroll, x){
+    var runner = cus_scroll.querySelector(".slider"); 
     
     var savepos = parseInt(runner.getAttribute( "data-savepos"));
     var savex = parseInt(runner.getAttribute( "data-x"));
     
-    var scrollWidth = parseInt(scroll.offsetWidth);
+    var scrollWidth = parseInt(cus_scroll.offsetWidth);
     var runnerWidth = parseInt(runner.offsetWidth);
     // ставим левый отступ
     var margin_left;

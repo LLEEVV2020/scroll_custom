@@ -22,7 +22,7 @@ body{
     .wrap_scroll { 
         overflow: auto;
     }
-    .scroll{
+    .cus_scroll{
         display: none;
     }
 }
@@ -33,11 +33,11 @@ body{
     width: 1800px;
 }
 
-.scroll, .slider{
+.cus_scroll, .slider{
     border-radius: 2px;
     
 }
-.scroll{
+.cus_scroll{
     width: 100%;
     background-color: #cbcbcb;
 }    
