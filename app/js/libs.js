@@ -56,7 +56,7 @@ function ifWider(cus_scroll){
 /**********************************************************/
 /** Добавляем в бегунок` ширину*/
 function creatuRerunner(cus_scroll){
-    var runner = cus_scroll.querySelector(".slider") === null ? cus_scroll : cus_scroll.querySelector(".slider");  
+    var runner = cus_scroll.querySelector(".cus_slider") === null ? cus_scroll : cus_scroll.querySelector(".cus_slider");  
     var wrap_scroll = cus_scroll.closest(".wrap_scroll");
     var table = wrap_scroll.querySelector(".table");
     
@@ -73,7 +73,7 @@ function creatuRerunner(cus_scroll){
 /* Сдвигаем ползунок если сдвигаем курсор*/
 /* Вторая версия*/
 function makeScroll(cus_scroll, x){
-    var runner = cus_scroll.querySelector(".slider"); 
+    var runner = cus_scroll.querySelector(".cus_slider"); 
     
     var savepos = parseInt(runner.getAttribute( "data-savepos"));
     var savex = parseInt(runner.getAttribute( "data-x"));

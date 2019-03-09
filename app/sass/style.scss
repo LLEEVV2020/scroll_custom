@@ -33,7 +33,7 @@ body{
     width: 1800px;
 }
 
-.cus_scroll, .slider{
+.cus_scroll, .cus_slider{
     border-radius: 2px;
     
 }
@@ -41,14 +41,14 @@ body{
     width: 100%;
     background-color: #cbcbcb;
 }    
-.slider{
+.cus_slider{
     background: #307fbd;
     cursor: pointer;
     width: 0.0%;
     min-width: 23px;
     height: 20px;
 }
-.slider:hover{
+.cus_slider:hover{
     background: #1d6cab;
 }
 .bga{

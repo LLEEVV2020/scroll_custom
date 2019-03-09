@@ -15,11 +15,11 @@ else {
     //     creatuRerunner(item);
     // });
 
-    let slider = document.querySelectorAll(".slider");
+    let cus_slider = document.querySelectorAll(".cus_slider");
 
-    for(var i=0; i<slider.length; i++){
+    for(var i=0; i<cus_slider.length; i++){
         
-        slider[i].onmouseout = function(e){
+        cus_slider[i].onmouseout = function(e){
 
             let flag_bga= this.querySelectorAll(".bga");
             // если таблица не вмещается в контейнер, то 
@@ -39,7 +39,7 @@ else {
         };
         // Событие mousedown срабатывает, когда кнопка 
         // мыши нажата над элементом.
-        slider[i].onmousedown = function(eventObject){
+        cus_slider[i].onmousedown = function(eventObject){
             
             /*Находим координаты курсора по оси Х*/
             if(this.children.length < 1){
@@ -66,7 +66,7 @@ else {
             };
             return false;
         };
-        slider[i].onmouseup = function(eventObject){
+        cus_slider[i].onmouseup = function(eventObject){
             //$(this).find(".bga").remove();
         
             var el_del = this.querySelector(".bga");
