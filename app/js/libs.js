@@ -47,24 +47,24 @@ function isContained(m, e){
 * выходит ли за гранницу?*/
 function ifWider(scroll){
     
-    var wrapper = scroll.closest(".wrapper");
-    var table = wrapper.querySelector(".table");
+    var wrap_scroll = scroll.closest(".wrap_scroll");
+    var table = wrap_scroll.querySelector(".table");
     
-    return wrapper.offsetWidth < table.offsetWidth;   
+    return wrap_scroll.offsetWidth < table.offsetWidth;   
 }
 
 /**********************************************************/
 /** Добавляем в бегунок` ширину*/
 function creatuRerunner(scroll){
     var runner = scroll.querySelector(".slider") === null ? scroll : scroll.querySelector(".slider");  
-    var wrapper = scroll.closest(".wrapper");
-    var table = wrapper.querySelector(".table");
+    var wrap_scroll = scroll.closest(".wrap_scroll");
+    var table = wrap_scroll.querySelector(".table");
     
-    var wrapper_w = wrapper.offsetWidth;
+    var wrap_scroll_w = wrap_scroll.offsetWidth;
     var table_w = table.offsetWidth;
     
     // вычисляем сколько процентов составляет "бегунок" от общего размера видимого окна
-    var sum = table_w / wrapper_w;
+    var sum = table_w / wrap_scroll_w;
     runner.style.width = "calc(" + "100% / " + sum + ")";
 
 }

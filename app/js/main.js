@@ -55,10 +55,10 @@ else {
                     var x = getPosition(e).x;
 
                     /* Добавляем в бегунок правильную ширину*/
-                    creatuRerunner(this.closest(".wrapper"));
+                    creatuRerunner(this.closest(".wrap_scroll"));
 
                     /* Сдвигаем ползунок если сдвигаем курсор*/
-                    makeScroll(this.closest(".wrapper"), x); 
+                    makeScroll(this.closest(".wrap_scroll"), x); 
                     
                     //console.log( x + ' - Вы нажали на кнопку мыши, над элементом "foo". Код нажатой клавиши - ' + eventObject.which);
                 }

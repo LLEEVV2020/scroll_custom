@@ -6,7 +6,7 @@ body{
     justify-content: center;
     height: 100vh;
 }
-.wrapper{
+.wrap_scroll{
     background-color: aqua;
     width: 399px;
     max-width: 1700px;
@@ -19,7 +19,7 @@ body{
 }
 
 @supports not (font-size: calc(25%)) {
-    wrapper { 
+    .wrap_scroll { 
         overflow: auto;
     }
     .scroll{

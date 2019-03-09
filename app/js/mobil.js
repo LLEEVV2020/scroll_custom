@@ -1,6 +1,6 @@
 function mobile() {
 
-let wrapscroll = document.getElementsByClassName('wrapper');
+let wrapscroll = document.getElementsByClassName('wrap_scroll');
 let statusdiv = document.getElementsByClassName('statusdiv');
 statusdiv = statusdiv[0];
 
