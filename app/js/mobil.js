@@ -14,9 +14,7 @@ let windowDocumentTouch = (window.DocumentTouch && window.document instanceof wi
 
 for(let i=0; i<wrapscroll.length; i++){
     
-    let startx = 0;
-    let dist = 0;
-    
+    let startx = 0;    
     
     wrapscroll[i].addEventListener('touchstart', function(e){
         let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
