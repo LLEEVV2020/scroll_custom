@@ -25,7 +25,7 @@ for(let i=0; i<wrapscroll.length; i++){
     wrapscroll[i].addEventListener('touchstart', function(e){
         let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
         startx = parseInt(touchobj.clientX);
-        statusdiv.innerHTML = 'Событие: touchstart<br /> ClientX: ' + startx + 'px';
+        statusdiv.innerHTML = this.offsetWidth +' Событие: touchstart<br /> ClientX: ' + startx + 'px';
         e.preventDefault();
     }, false);
     
