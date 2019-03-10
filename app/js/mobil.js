@@ -1,4 +1,10 @@
 function mobile() {
+    
+let wrap_scroll = document.querySelectorAll(".wrap_scroll");
+
+[].forEach.call(wrap_scroll, function(item) {
+    creatuRerunner(item);
+});
 
 let wrapscroll = document.getElementsByClassName('wrap_scroll');
 let statusdiv = document.getElementsByClassName('statusdiv');
