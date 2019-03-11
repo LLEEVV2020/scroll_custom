@@ -25,7 +25,11 @@ for(let i=0; i<wrapscroll.length; i++){
     wrapscroll[i].addEventListener('touchstart', function(e){
         let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
         startx = parseInt(touchobj.clientX);
-        statusdiv.innerHTML = this.offsetWidth +' Событие: touchstart<br /> ClientX: ' + startx + 'px';
+        
+        let dist = parseInt(touchobj.clientX) - startx;
+        makeScrollAdd(this.querySelector(".cus_slider"), dist)
+
+        //statusdiv.innerHTML = this.offsetWidth +' Событие: touchstart<br /> ClientX: ' + startx + 'px';
         e.preventDefault();
     }, false);
     
@@ -39,13 +43,13 @@ for(let i=0; i<wrapscroll.length; i++){
         /* Сдвигаем ползунок если сдвигаем курсор*/
         makeScroll(this, dist); 
 
-        statusdiv.innerHTML = 'Событие: touchmove<br /> Гориз. перемещение: ' + dist + 'pxxx' + ' ' + ontouchstartinwindow + ' ' + ontouchstartdocumentdocumentElement  + ' ' + windowontouchstart + ' ' + windowTouch + ' ' + windowonmsgesturechange + ' ' + windowDocumentTouch + ' ';
+        //statusdiv.innerHTML = 'Событие: touchmove<br /> Гориз. перемещение: ' + dist + 'pxxx' + ' ' + ontouchstartinwindow + ' ' + ontouchstartdocumentdocumentElement  + ' ' + windowontouchstart + ' ' + windowTouch + ' ' + windowonmsgesturechange + ' ' + windowDocumentTouch + ' ';
         e.preventDefault();
     }, false);
     
     wrapscroll[i].addEventListener('touchend', function(e){
         let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
-        statusdiv.innerHTML = 'Событие: touchend<br /> Координаты точки x: ' + touchobj.clientX + 'px ????';
+        //statusdiv.innerHTML = 'Событие: touchend<br /> Координаты точки x: ' + touchobj.clientX + 'px ????';
         e.preventDefault();
     }, false);
     
