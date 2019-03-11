@@ -30,7 +30,7 @@ for(let i=0; i<wrapscroll.length; i++){
         makeScrollAdd(this.querySelector(".cus_slider"), dist)
 
         //statusdiv.innerHTML = this.offsetWidth +' Событие: touchstart<br /> ClientX: ' + startx + 'px';
-        e.preventDefault();
+        //e.preventDefault();
     }, false);
     
     wrapscroll[i].addEventListener('touchmove', function(e){
@@ -44,13 +44,13 @@ for(let i=0; i<wrapscroll.length; i++){
         makeScroll(this, dist); 
 
         //statusdiv.innerHTML = 'Событие: touchmove<br /> Гориз. перемещение: ' + dist + 'pxxx' + ' ' + ontouchstartinwindow + ' ' + ontouchstartdocumentdocumentElement  + ' ' + windowontouchstart + ' ' + windowTouch + ' ' + windowonmsgesturechange + ' ' + windowDocumentTouch + ' ';
-        e.preventDefault();
+        //e.preventDefault();
     }, false);
     
     wrapscroll[i].addEventListener('touchend', function(e){
         let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
         //statusdiv.innerHTML = 'Событие: touchend<br /> Координаты точки x: ' + touchobj.clientX + 'px ????';
-        e.preventDefault();
+        //e.preventDefault();
     }, false);
     
     
