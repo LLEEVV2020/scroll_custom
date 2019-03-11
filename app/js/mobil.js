@@ -30,8 +30,15 @@ for(let i=0; i<wrapscroll.length; i++){
     }, false);
     
     wrapscroll[i].addEventListener('touchmove', function(e){
+
         let touchobj = e.changedTouches[0]; // reference first touch point (ie: first finger)
         let dist = parseInt(touchobj.clientX) - startx;
+
+        /* Добавляем в бегунок правильную ширину*/
+        creatuRerunner(this);
+        /* Сдвигаем ползунок если сдвигаем курсор*/
+        makeScroll(this, dist); 
+
         statusdiv.innerHTML = 'Событие: touchmove<br /> Гориз. перемещение: ' + dist + 'pxxx' + ' ' + ontouchstartinwindow + ' ' + ontouchstartdocumentdocumentElement  + ' ' + windowontouchstart + ' ' + windowTouch + ' ' + windowonmsgesturechange + ' ' + windowDocumentTouch + ' ';
         e.preventDefault();
     }, false);
