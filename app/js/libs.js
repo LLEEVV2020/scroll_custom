@@ -133,3 +133,82 @@ function makeScrollAdd(runner, x){
     
 }
 
+/**
+ * 
+ * @param {событие ошибки} e 
+ */
+function onWheel(wrap_scroll, x, e) {
+    e = e || window.event;
+    
+    // deltaY, detail содержат пиксели
+    // wheelDelta не дает возможность узнать количество пикселей
+    // onwheel || MozMousePixelScroll || onmousewheel
+    let delta = e.deltaY || e.detail || e.wheelDelta;
+    if(delta > 0){
+        delta = 5;
+    } else {
+        delta = -5;
+    }
+    let stepLocal = delta;
+
+
+    //var info = document.getElementById('delta');
+
+    let runner = wrap_scroll.querySelector(".cus_slider"); 
+
+    let savepos = parseInt(runner.getAttribute( "data-savepos"));
+    let savex = parseInt(runner.getAttribute( "data-x"));
+
+    let ml = runner.style.marginLeft !== "" ? parseInt(runner.style.marginLeft) : 0;
+
+    let scrollWidth = parseInt(wrap_scroll.offsetWidth);
+    let runnerWidth = parseInt(runner.offsetWidth);
+    let runnerWidthsavepos = runnerWidth + savepos;
+    let scrollWidthrunnerWidth = scrollWidth - runnerWidth;
+    if(ml !== savepos){
+        savepos = ml;
+    }
+    else {
+        if(0 > savepos ){
+        
+            if(ml){
+                console.log(scr_t);
+            }
+            savepos = 0;
+        }
+        else if(scrollWidth > runnerWidthsavepos ){
+            if((scrollWidth - runnerWidthsavepos) < stepLocal){
+                savepos = scrollWidthrunnerWidth;
+            } else{
+                savepos = savepos + stepLocal;
+            }
+        }
+        else{
+            if(stepLocal > 0){
+                savepos = savepos;
+            } else{
+                savepos = savepos + stepLocal;
+            }
+            
+        }
+    }
+
+   
+    
+    margin_left = savepos;
+    if(margin_left < 0){
+        margin_left = 0;
+    }
+    
+    //var margin_left = savepos + stepLocal;
+    //savex = x;
+
+    runner.style.marginLeft = margin_left + "px";
+    runner.setAttribute("data-x", savex);
+    runner.setAttribute("data-savepos", margin_left);
+
+    //info.innerHTML = +info.innerHTML + delta;
+
+    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+}
+

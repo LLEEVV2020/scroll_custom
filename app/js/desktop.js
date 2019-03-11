@@ -11,8 +11,19 @@ function desktop() {
     // });
 
     let cus_slider = document.querySelectorAll(".cus_slider");
+    let wrapper_scroll = document.querySelectorAll(".wrap_scroll");
 
     for(var i=0; i<cus_slider.length; i++){
+        
+        cus_slider[i].setAttribute("data-x", 0);
+        cus_slider[i].setAttribute("data-savepos", 0);
+
+        // Колёсы мыши
+        wrapper_scroll[i].onwheel = function(e){ 
+            var x = getPosition(e).x;
+            onWheel(this, x, e);
+        };
+        //cus_slider.addEventListener("wheel", onWheel);
         
         cus_slider[i].onmouseout = function(e){
 

@@ -45,40 +45,48 @@
             margin:0;
             background-color: rgba(255, 0, 0, 0.151);
         }
-
-        section {
-            width:100vw;
+        #container {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background: #0FF;
             overflow: auto;
         }
-        div{
-            width:200vw;
-            background-color: red;
-            overflow: auto;
-        }
-
     </style>
     
 </head>
 <body>
-    <section>
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nulla incidunt voluptatum quo. Soluta aspernatur, dolor, temporibus aliquam distinctio officia similique quaerat voluptates esse totam deleniti error vero. Illo, dolorem?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus harum voluptatum cupiditate molestias ipsam earum? Totam hic voluptatem autem atque itaque aliquam quia accusantium fugit, sequi rerum? Officiis, illo eveniet.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti doloremque quaerat veniam, illo sit praesentium at nostrum, optio laudantium quae libero repellendus ut totam consequuntur, perspiciatis harum. Debitis, nisi hic.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque, aut! Amet neque a saepe sint commodi, velit voluptatum nobis quo sed cumque quaerat minima non possimus soluta veritatis odit nisi?
-        </div>
-    </section>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut nulla incidunt voluptatum quo. Soluta aspernatur, dolor, temporibus aliquam distinctio officia similique quaerat voluptates esse totam deleniti error vero. Illo, dolorem?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus harum voluptatum cupiditate molestias ipsam earum? Totam hic voluptatem autem atque itaque aliquam quia accusantium fugit, sequi rerum? Officiis, illo eveniet.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti doloremque quaerat veniam, illo sit praesentium at nostrum, optio laudantium quae libero repellendus ut totam consequuntur, perspiciatis harum. Debitis, nisi hic.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque, aut! Amet neque a saepe sint commodi, velit voluptatum nobis quo sed cumque quaerat minima non possimus soluta veritatis odit nisi?</p>
+
+    Прокрутка: <span id="delta">0</span>
+    <div id="container">
+      Прокрути надо мной.
+    </div>
 
     <script>
-        if ("ontouchstart" in document.documentElement) {
-            alert("It a touch screen device.");
-        }
-        else {
-            alert("комп");
-        }
+var elem = document.getElementById('container');
+
+
+    
+    elem.addEventListener("wheel", onWheel);
+
+
+
+
+    // Это решение предусматривает поддержку IE8-
+    function onWheel(e) {
+      e = e || window.event;
+
+      // deltaY, detail содержат пиксели
+      // wheelDelta не дает возможность узнать количество пикселей
+      // onwheel || MozMousePixelScroll || onmousewheel
+      var delta = e.deltaY || e.detail || e.wheelDelta;
+
+      var info = document.getElementById('delta');
+
+      info.innerHTML = +info.innerHTML + delta;
+
+      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+    }
     </script>
 </body>
 </html>
