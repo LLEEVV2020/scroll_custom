@@ -140,9 +140,6 @@ function makeScrollAdd(runner, x){
 function onWheel(wrap_scroll, x, e) {
     e = e || window.event;
     
-    // deltaY, detail содержат пиксели
-    // wheelDelta не дает возможность узнать количество пикселей
-    // onwheel || MozMousePixelScroll || onmousewheel
     let delta = e.deltaY || e.detail || e.wheelDelta;
     if(delta > 0){
         delta = 5;
@@ -151,8 +148,6 @@ function onWheel(wrap_scroll, x, e) {
     }
     let stepLocal = delta;
 
-
-    //var info = document.getElementById('delta');
 
     let runner = wrap_scroll.querySelector(".cus_slider"); 
 
@@ -192,17 +187,12 @@ function onWheel(wrap_scroll, x, e) {
             
         }
     }
-
-   
     
     margin_left = savepos;
     if(margin_left < 0){
         margin_left = 0;
     }
     
-    //var margin_left = savepos + stepLocal;
-    //savex = x;
-
     runner.style.marginLeft = margin_left + "px";
     runner.setAttribute("data-x", savex);
     runner.setAttribute("data-savepos", margin_left);
