@@ -57,36 +57,17 @@
 </head>
 <body>
 
-    Прокрутка: <span id="delta">0</span>
-    <div id="container">
-      Прокрути надо мной.
-    </div>
+   
 
     <script>
-var elem = document.getElementById('container');
 
+        var regex = /[\d|,|.|\+]+/g;
 
-    
-    elem.addEventListener("wheel", onWheel);
+        var string = "you can enter maximum 5,123.6 choices";
+        var matches = string.match(/[\d|,|.|\+]+/g);  // creates array from matches
 
+        document.write(matches); //5,123.6
 
-
-
-    // Это решение предусматривает поддержку IE8-
-    function onWheel(e) {
-      e = e || window.event;
-
-      // deltaY, detail содержат пиксели
-      // wheelDelta не дает возможность узнать количество пикселей
-      // onwheel || MozMousePixelScroll || onmousewheel
-      var delta = e.deltaY || e.detail || e.wheelDelta;
-
-      var info = document.getElementById('delta');
-
-      info.innerHTML = +info.innerHTML + delta;
-
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    }
     </script>
 </body>
 </html>

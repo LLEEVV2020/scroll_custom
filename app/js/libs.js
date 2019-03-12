@@ -156,12 +156,14 @@ function onWheel(wrap_scroll, x, e) {
 
 
     let runner = wrap_scroll.querySelector(".cus_slider"); 
+    let wrap_cus_scroll = wrap_scroll.querySelector(".cus_scroll").scrollWidth; 
 
     let savepos = parseInt(runner.getAttribute( "data-savepos"));
     let savex = parseInt(runner.getAttribute( "data-x"));
 
     let ml = runner.style.marginLeft !== "" ? parseInt(runner.style.marginLeft) : 0;
-    let wFloat = runner.style.width !== "" ? parseFloat(runner.style.width) : 0;
+    let wFloat = runner.style.width !== "" ? runner.style.width.match(/[\d|,|.|\+]+/g) : 0;
+    wFloat = +wFloat[0];
 
     let scrollWidth = parseInt(wrap_scroll.offsetWidth);
     let runnerWidth = parseInt(runner.offsetWidth);
@@ -189,8 +191,12 @@ function onWheel(wrap_scroll, x, e) {
             if(stepLocal > 0){
                 shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + savepos, wrap_scroll);
                 savepos = savepos;
-                let sum = wFloat - parseInt(wFloat); 
-                if(sum === 0.5 ){
+                wFloat = Math.round(wFloat * 10000) / 10000 ;
+                let sum = wrap_cus_scroll * wFloat   / 100; 
+                sum = sum + 0.001;
+                let localSum = parseInt(sum);
+                sum =  sum - localSum;
+                if(sum > 0.499999999999999 ){
                     savepos++;
                 } 
             } else{
