@@ -92,9 +92,11 @@ function makeScroll(cus_scroll, x){
         // ставим ограничение чтоб не уходило в левую сторону за гранницу
         if(savepos > 0){
             if(0 > (savepos - stepLocal)){
-               savepos = 0;
+                shift_table("ВЛЕВО: savepos = " + 0);
+                savepos = 0;
             }
             else{
+                shift_table("ВЛЕВО: savepos - stepLocal = " + (savepos - stepLocal));
                 savepos = savepos - stepLocal; 
             }
         }
@@ -104,9 +106,11 @@ function makeScroll(cus_scroll, x){
         // ставим ограничение чтоб не уходило в правую сторону за гранницу
         if(savepos + runnerWidth < scrollWidth){
             if((scrollWidth - runnerWidth) < (savepos + stepLocal)){
-               savepos = scrollWidth - runnerWidth;
+                shift_table("ВПРАВО: scrollWidth - runnerWidth = " + (scrollWidth - runnerWidth));
+                savepos = scrollWidth - runnerWidth;
             }
             else{
+                shift_table("ВПРАВО: savepos + stepLocal = " + (savepos + stepLocal));
                 savepos = savepos + stepLocal; 
             }
         } 
@@ -161,27 +165,29 @@ function onWheel(wrap_scroll, x, e) {
     let runnerWidthsavepos = runnerWidth + savepos;
     let scrollWidthrunnerWidth = scrollWidth - runnerWidth;
     if(ml !== savepos){
+        shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: ml = " + ml);
         savepos = ml;
     }
     else {
         if(0 > savepos ){
-        
-            if(ml){
-                console.log(scr_t);
-            }
+            shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: 0 = " + 0);
             savepos = 0;
         }
         else if(scrollWidth > runnerWidthsavepos ){
             if((scrollWidth - runnerWidthsavepos) < stepLocal){
+                shift_table("ВПРАВО --ШЕСТЕРЁНОК--: scrollWidthrunnerWidth = " + scrollWidthrunnerWidth);
                 savepos = scrollWidthrunnerWidth;
             } else{
+                shift_table("ВПРАВО --ШЕСТЕРЁНОК--: savepos + stepLocal = " + (savepos + stepLocal));
                 savepos = savepos + stepLocal;
             }
         }
         else{
             if(stepLocal > 0){
+                shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + savepos);
                 savepos = savepos;
             } else{
+                shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + (savepos + stepLocal));
                 savepos = savepos + stepLocal;
             }
             
