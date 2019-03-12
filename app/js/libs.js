@@ -78,6 +78,8 @@ function makeScroll(cus_scroll, x){
     var savepos = parseInt(runner.getAttribute( "data-savepos"));
     var savex = parseInt(runner.getAttribute( "data-x"));
     
+    var wrap_scroll = cus_scroll.closest(".wrap_scroll");
+
     var scrollWidth = parseInt(cus_scroll.offsetWidth);
     var runnerWidth = parseInt(runner.offsetWidth);
     // ставим левый отступ
@@ -92,11 +94,11 @@ function makeScroll(cus_scroll, x){
         // ставим ограничение чтоб не уходило в левую сторону за гранницу
         if(savepos > 0){
             if(0 > (savepos - stepLocal)){
-                shift_table("ВЛЕВО: savepos = " + 0);
+                shift_table("ВЛЕВО: savepos = " + 0, wrap_scroll);
                 savepos = 0;
             }
             else{
-                shift_table("ВЛЕВО: savepos - stepLocal = " + (savepos - stepLocal));
+                shift_table("ВЛЕВО: savepos - stepLocal = " + (savepos - stepLocal), wrap_scroll);
                 savepos = savepos - stepLocal; 
             }
         }
@@ -106,11 +108,11 @@ function makeScroll(cus_scroll, x){
         // ставим ограничение чтоб не уходило в правую сторону за гранницу
         if(savepos + runnerWidth < scrollWidth){
             if((scrollWidth - runnerWidth) < (savepos + stepLocal)){
-                shift_table("ВПРАВО: scrollWidth - runnerWidth = " + (scrollWidth - runnerWidth));
+                shift_table("ВПРАВО: scrollWidth - runnerWidth = " + (scrollWidth - runnerWidth), wrap_scroll);
                 savepos = scrollWidth - runnerWidth;
             }
             else{
-                shift_table("ВПРАВО: savepos + stepLocal = " + (savepos + stepLocal));
+                shift_table("ВПРАВО: savepos + stepLocal = " + (savepos + stepLocal), wrap_scroll);
                 savepos = savepos + stepLocal; 
             }
         } 
@@ -165,29 +167,29 @@ function onWheel(wrap_scroll, x, e) {
     let runnerWidthsavepos = runnerWidth + savepos;
     let scrollWidthrunnerWidth = scrollWidth - runnerWidth;
     if(ml !== savepos){
-        shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: ml = " + ml);
+        shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: ml = " + ml, wrap_scroll);
         savepos = ml;
     }
     else {
         if(0 > savepos ){
-            shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: 0 = " + 0);
+            shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: 0 = " + 0, wrap_scroll);
             savepos = 0;
         }
         else if(scrollWidth > runnerWidthsavepos ){
             if((scrollWidth - runnerWidthsavepos) < stepLocal){
-                shift_table("ВПРАВО --ШЕСТЕРЁНОК--: scrollWidthrunnerWidth = " + scrollWidthrunnerWidth);
+                shift_table("ВПРАВО --ШЕСТЕРЁНОК--: scrollWidthrunnerWidth = " + scrollWidthrunnerWidth, wrap_scroll);
                 savepos = scrollWidthrunnerWidth;
             } else{
-                shift_table("ВПРАВО --ШЕСТЕРЁНОК--: savepos + stepLocal = " + (savepos + stepLocal));
+                shift_table("ВПРАВО --ШЕСТЕРЁНОК--: savepos + stepLocal = " + (savepos + stepLocal), wrap_scroll);
                 savepos = savepos + stepLocal;
             }
         }
         else{
             if(stepLocal > 0){
-                shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + savepos);
+                shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + savepos, wrap_scroll);
                 savepos = savepos;
             } else{
-                shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + (savepos + stepLocal));
+                shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + (savepos + stepLocal), wrap_scroll);
                 savepos = savepos + stepLocal;
             }
             
