@@ -161,6 +161,7 @@ function onWheel(wrap_scroll, x, e) {
     let savex = parseInt(runner.getAttribute( "data-x"));
 
     let ml = runner.style.marginLeft !== "" ? parseInt(runner.style.marginLeft) : 0;
+    let wFloat = runner.style.width !== "" ? parseFloat(runner.style.width) : 0;
 
     let scrollWidth = parseInt(wrap_scroll.offsetWidth);
     let runnerWidth = parseInt(runner.offsetWidth);
@@ -188,6 +189,10 @@ function onWheel(wrap_scroll, x, e) {
             if(stepLocal > 0){
                 shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + savepos, wrap_scroll);
                 savepos = savepos;
+                let sum = wFloat - parseInt(wFloat); 
+                if(sum === 0.5 ){
+                    savepos++;
+                } 
             } else{
                 shift_table("ВЛЕВО --ШЕСТЕРЁНОК--: savepos = " + (savepos + stepLocal), wrap_scroll);
                 savepos = savepos + stepLocal;
