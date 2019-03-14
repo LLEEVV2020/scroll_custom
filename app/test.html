@@ -4,70 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>test</title>
-    
-    <style>
-       /*body{
-           margin: 0;
-           display: flex;
-           flex-wrap: wrap;
-           font-size: 2rem;
-       }
-       body > a{
-           width: 20%;
-           height: 50px;
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           color: #fff;
-           text-decoration: none;
-        }
-       
-        body > a:hover:after{
-            content: "выбрал";
-        }
-        a:nth-child(4n+4){
-            background-color: green;
-        }
-        a:nth-child(4n+3){
-            background-color:blueviolet;
-        }
-        a:nth-child(4n+2){
-            background-color:coral;
-        }
-        a:nth-child(4n+1){
-            background-color:dodgerblue;
-        }*/
+    <title>Only CSS3 Dropdown Menu</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
-        html, body {
-            min-height:100vh;
-            min-width:100vw;
-            margin:0;
-            background-color: rgba(255, 0, 0, 0.151);
-        }
-        #container {
-            width: 200px;
-            height: 200px;
-            border: 1px solid black;
-            background: #0FF;
-            overflow: auto;
-        }
-    </style>
-    
+  
+      <link rel="stylesheet" href="css/style2.css">
+
+  
 </head>
+
 <body>
 
-   
+  <div class="container">
+  <h1 class="title">Dropdown Menu</h1>
+  <ul>
+    <li class="dropdown">
+      <input type="checkbox" />
+      <a href="#" data-toggle="dropdown">First Menu</a>
+      <div class="dropdown-menu">
+        <span>Home</span>
+        <span>About Us</span>
+        <span>Services</span>
+        <span>Contact</span>
+        <div>jkioppp</div>
+      </div>
+      <div>huiuiuuuuuuuuuuuuuu</div>
+    </li>
+    <li class="dropdown">
+      <input type="checkbox" />
+      <a href="#" data-toggle="dropdown">Second Menu</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <input type="checkbox" />
+      <a href="#" data-toggle="dropdown">Third Menu</a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+  
+  <div>ytr</div>
 
-    <script>
+<div id="div-01">Вот div-01</div><div id="div-02">Вот div-02</div>
 
-        var regex = /[\d|,|.|\+]+/g;
+<script type="text/javascript">
+var el = document.getElementById('div-01').nextElementSibling,
+    i = 1;
 
-        var string = "you can enter maximum 5,123.6 choices";
-        var matches = string.match(/[\d|,|.|\+]+/g);  // creates array from matches
+console.log('Потомки div-01:');
 
-        document.write(matches); //5,123.6
+while (el) {
+  console.log(i + '. ' + el.nodeName);
+  console.log(el.nodeName);
+  el = el.nextElementSibling;
+  i++;
+}
 
-    </script>
+</script>
+
 </body>
+
 </html>
